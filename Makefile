@@ -42,10 +42,11 @@ MAKE_FLAGS += cross2
 define Package/udpspeeder/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/speederv2_cross $(1)/usr/bin/udpspeeder
-	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) files/udpspeeder.init $(1)/etc/init.d/udpspeeder
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_CONF) files/udpspeeder.config $(1)/etc/config/udpspeeder
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/speederv2_cross $(1)/usr/bin/udpspeederv2
+	#$(INSTALL_DIR) $(1)/etc/init.d
+	#$(INSTALL_BIN) files/udpspeeder.init $(1)/etc/init.d/udpspeeder
+	#$(INSTALL_DIR) $(1)/etc/config
+	#$(INSTALL_CONF) files/udpspeeder.config $(1)/etc/config/udpspeeder
 endef
 
 $(eval $(call BuildPackage,udpspeeder))
